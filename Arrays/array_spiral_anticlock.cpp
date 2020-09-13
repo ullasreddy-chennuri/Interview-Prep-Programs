@@ -1,0 +1,54 @@
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+void spiral_anti(int a[][1000],int m,int n){
+	int startRow = 0;
+	int startCol = 0;
+	int endRow = m-1;
+	int endCol = n-1;
+
+	while(startRow<=endRow && startCol<=endCol){
+		for(int i=startRow;i<=endRow;i++){
+			cout<<a[i][startCol]<<", ";
+		}
+		startCol++;
+
+		for(int i=startCol;i<=endCol;i++){
+			cout<<a[endRow][i]<<", ";
+		}
+		endRow--;
+
+		if(endRow>startRow){
+			for(int i=endRow;i>=startRow;i--){
+				cout<<a[i][endCol]<<", ";
+			}
+			endCol--;
+		}
+
+		if(endCol>startCol){
+			for(int i=endCol;i>=startCol;i--){
+				cout<<a[startRow][i]<<", ";
+			}
+			startRow++;
+		}
+	}
+
+	cout<<"END";
+}
+
+int main(){
+	int m,n;
+	cin>>m>>n;
+	int a[1000][1000];
+	for(int i=0;i<m;i++){
+		for(int j=0;j<n;j++){
+			cin>>a[i][j];
+		}
+	}
+
+	spiral_anti(a,m,n);
+
+}
